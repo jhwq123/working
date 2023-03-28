@@ -9,9 +9,24 @@ package chapter06;
 public class A {
 	int n;
 	int m;
+	
+	private int pn;
+	
+	public A() {
+		
+	}
+	
 	public A(int n, int m) {
 		this.n = n;
 		this.m = m;
+	}
+	
+	void setN(int pn) { // 세터 setter
+		this.pn = pn;
+	}
+	
+	int getN() { // 게터 getter
+		return pn;
 	}
 }
 
