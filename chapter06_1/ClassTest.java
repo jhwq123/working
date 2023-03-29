@@ -28,17 +28,18 @@ public class ClassTest {
 //		a.setArray(11, 100);
 //		a.addArray(10);
 //		a.showArrayInfo();
+//		
+//		MyInfinityArray mfa = new MyInfinityArray(3);
+//		mfa.put(1);
+//		mfa.put(2);
+//		mfa.put(10);
+//		mfa.put(20);
+//		mfa.put(30);
+//		mfa.showInfo();
+//		mfa.remove(2);
+//		mfa.showInfo();
+//		mfa.search(30);
+//		mfa.search(5);
 		
-		MyInfinityArray mfa = new MyInfinityArray(3);
-		mfa.put(1);
-		mfa.put(2);
-		mfa.put(10);
-		mfa.put(20);
-		mfa.put(30);
-		mfa.showInfo();
-		mfa.remove(2);
-		mfa.showInfo();
-		mfa.search(30);
-		mfa.search(5);
 	}
 }

@@ -12,54 +12,67 @@ public class StudentEx {
 	private int[] total = new int[5];
 	private double[] average = new double[5];
 	
-	public StudentEx(int sno, String name) {
-		this.sno = sno-1;
-		this.name[this.sno] = name;
+	public StudentEx() {
+		this.sno = 0;
 	}
 	
-	void setKorScore(int korScore) {
+	void setSno(int sno) {
+		this.sno = sno;
+	}
+	int getSno(int son) {
+		return sno;
+	}
+	
+	void setName(int sno, String name) {
+		this.name[sno] = name;
+	}
+	String getName(int sno) {
+		return name[sno];
+	}
+	
+	void setKorScore(int son, int korScore) {
 		this.korScore[sno] = korScore;
 	}
-	int getKorScore() {
+	int getKorScore(int son) {
 		return korScore[sno];
 	}
 	
-	void setEngScore(int engScore) {
+	void setEngScore(int son, int engScore) {
 		this.engScore[sno] = engScore;
 	}
-	int getEngScore() {
+	int getEngScore(int son) {
 		return engScore[sno];
 	}
 	
-	void setMatScore(int matScore) {
+	void setMatScore(int son, int matScore) {
 		this.matScore[sno] = matScore;
 	}
-	int getMatScore() {
+	int getMatScore(int son) {
 		return matScore[sno];
 	}
 	
-	void setSocScore(int socScore) {
+	void setSocScore(int son, int socScore) {
 		this.socScore[sno] = socScore;
 	}
-	int getSocScore() {
+	int getSocScore(int son) {
 		return socScore[sno];
 	}
 	
-	void setSciScore(int sciScore) {
+	void setSciScore(int son, int sciScore) {
 		this.sciScore[sno] = sciScore;
 	}
-	int getSciScore() {
+	int getSciScore(int son) {
 		return sciScore[sno];
 	}
 	
-	int getTotal() {
+	int getTotal(int sno) {
 		total[sno] = korScore[sno] + engScore[sno] + matScore[sno] + 
 				socScore[sno] + sciScore[sno];
 		return total[sno];
 	}
 	
-	double getAverage() {
-		average[sno] = getTotal()/5;
+	double getAverage(int sno) {
+		average[sno] = getTotal(sno)/5.0;
 		return average[sno];
 	}
 	
@@ -102,12 +115,12 @@ public class StudentEx {
 		
 		System.out.print("\n총점:\t");
 		for(int i = 0; i < 5; i++) {
-			System.out.print(getTotal()+"\t");
+			System.out.print(getTotal(i)+"\t");
 		}
 		
 		System.out.print("\n평균:\t");
 		for(int i = 0; i < 5; i++) {
-			System.out.print(getAverage()+"\t");
+			System.out.print(getAverage(i)+"\t");
 		}
 	}
 }
