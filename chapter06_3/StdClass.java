@@ -6,7 +6,6 @@ public class StdClass {
 
 	Student[] member;
 	private int classTotal;
-	private double classAverage;
 	
 	public StdClass() {
 		this.member = new Student[5];

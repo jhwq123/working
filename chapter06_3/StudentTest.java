@@ -10,7 +10,8 @@ import java.util.Scanner;
 //  - 학생 개인 총점 및 평균 구하기 (void getTotal(), getAverage())
 //  - 학생 개인 정보 출력하기 (void getInfo())
 // StdClass 함수 - 생성 시 학생칸 만들기, 학생들 데이터 받기, 단체 총점 및 단체평균 구하기
-//  -
+//  - 생성 시 학생칸 만들기 (s1.sno = sno; s1.name = name;)
+//  - 
 //
 // School 함수 - 생성 시 교실칸 만들기, 교실들 데이터 받기, 총 총점 및 총평균 구하기
 // 

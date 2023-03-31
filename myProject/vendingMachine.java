@@ -35,6 +35,8 @@ public class vendingMachine {
 			}
 		}
 		
+		System.out.println(money);
+		
 		// 잔돈 계산 알고리즘 필요
 		// 남은 음료가 없으면 멈추기
 		
