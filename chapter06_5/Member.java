@@ -42,7 +42,7 @@ public class Member {
 	}
 	
 	public String toString() {
-		String s = ("번호: "+mno+" | 이름: "+name+" | 전화번호: "+phone);
+		String s = ("번호: "+mno+"\t | 이름: "+name+" | 전화번호: "+phone);
 		
 		if(email != null) {
 			s = s + (" | Email: "+email);

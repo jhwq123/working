@@ -43,10 +43,15 @@ public class MemberManager {
 	}
 	
 	void updateMember(int num, Member m) {
-		mList[num] = m;
+		for (int i = 0; i < mList.length; i++) {
+			if (num == mList[i].getMno()) {
+				mList[i] = m;
+			}
+		}
+	}
+	
+	void duplicateDetect( ) {
 		
-		//내용 출력
-		//한번에 다 수정할지, 하나만 수정할지 확인
 	}
 	
 	

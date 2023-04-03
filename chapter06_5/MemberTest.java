@@ -1,4 +1,4 @@
-package chapter06_5;
+ package chapter06_5;
 
 import java.util.Scanner;
 
@@ -29,7 +29,7 @@ public class MemberTest {
 			System.out.println("< 1:등록 / 2:조회 / 3:수정 / 4.삭제 >");
 			int sel = scanner.nextInt();
 			switch(sel) {
-			case 1:
+			case 1: // 연락처 추가 (Create)
 				Member mem = new Member(0, "", "");				
 				int idx = ml.getIndex();
 				System.out.println((idx+1)+"번째 정보를 추가합니다.");
@@ -52,7 +52,7 @@ public class MemberTest {
 				
 				ml.resistMember(mem);
 				break;
-			case 2:
+			case 2: // 연락처 조회 (Read)
 				System.out.println("조회 할 작업을 선택하세요");
 				System.out.println("< 1. 전체 조회 / 2. 개별 조회 >");
 				sel = scanner.nextInt();
@@ -87,41 +87,42 @@ public class MemberTest {
 					
 				}
 				break;
-			case 3:
+			case 3: // 연락처 수정 (Update)
 				// 수정
 				System.out.println("책 번호를 입력하세요");
 				int num = scanner.nextInt();
 				Member me = ml.selectOne(num);
-				idx = ml.getIndex();
-				System.out.println(me.toString());
 				
-				System.out.println("해당 연락처의 내용을 수정하겠습니까? (1:예 /2:아니오)");
-				sel  = scanner.nextInt();
-				
-				if (sel == 1) {
-					System.out.println((idx+1)+"번째 정보를 수정합니다.");
-
-					System.out.println("번호를 입력하세요");
-					mno = scanner.nextInt();
-					me.setMno(mno);
-
-					System.out.println("이름을 입력하세요");
-					title = scanner.next();
-					me.setName(title);
-
-					System.out.println("전화번호를 입력하세요");
-					phone = scanner.next();
-					me.setPhone(phone);
-
-					System.out.println("이메일을 입력하세요");
-					email = scanner.next();
-					me.setEmail(email);
+				if(me == null) {
+					System.out.println("해당 정보를 찾지 못했습니다.");
+				} else {
+					System.out.println(me.toString());
 					
-					ml.updateMember(num, me);
+					System.out.println("해당 연락처의 내용을 수정하겠습니까? (1:예 /2:아니오)");
+					sel  = scanner.nextInt();
+					
+					if (sel == 1) {
+						System.out.println("번호를 입력하세요");  // 업데이트시, 번호 중복되면 처리되도록 하기
+						mno = scanner.nextInt();
+						me.setMno(mno);
+
+						System.out.println("이름을 입력하세요");
+						title = scanner.next();
+						me.setName(title);
+
+						System.out.println("전화번호를 입력하세요");  // 업데이트시, 번호 중복되면 처리되도록 하기
+						phone = scanner.next();
+						me.setPhone(phone);
+
+						System.out.println("이메일을 입력하세요");  // 업데이트시, 이메일 중복되면 처리되도록 하기
+						email = scanner.next();
+						me.setEmail(email);
+						
+						ml.updateMember(num, me);
+					}
 				}
-				
 				break;
-			case 4:
+			case 4: // 연락처 삭제 (Delete)
 				// 삭제
 				break;
 			}
