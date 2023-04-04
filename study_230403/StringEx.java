@@ -25,6 +25,7 @@ public class StringEx {
 		// 3. 문자열 비교
 		String insa = new String("Hello");
 		String x = new String("Hello");
+		System.out.println(insa.equals(x));
 		
 		
 		// 4. 특정 문자 최초 위치 반환
