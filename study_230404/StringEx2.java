@@ -5,16 +5,19 @@ public class StringEx2 {
 		String str = "aebcd ef";
 		String txt = "cd";
 
+		
 		//indexOf(문자열)
 		int result = str.indexOf(txt);
 		System.out.println(result);
 		System.out.println("---------------------------------");
+		
 		
 		//lastIndexOf()
 		result = str.lastIndexOf('e');
 		System.out.println(result);		
 		System.out.println("---------------------------------");
 
+		
 		//concat()
 		String s1 = "Hello ";
 		String s2 = "Java";
@@ -25,6 +28,7 @@ public class StringEx2 {
 		System.out.println(s3);
 		System.out.println("---------------------------------");
 		
+		
 		//substring()
 		String s4 = "abcdefghijklmnopqrstuvwxyz";
 		String x = s4.substring(24);
@@ -32,6 +36,7 @@ public class StringEx2 {
 		x = s4.substring(1, 5);
 		System.out.println(x);
 		System.out.println("---------------------------------");
+		
 		
 		//split(구분자)
 		String y = "2023-04-09";
@@ -55,6 +60,7 @@ public class StringEx2 {
 		System.out.println(yyyy);
 		System.out.println("---------------------------------");
 
+		
 		// 문자열1.contains(문자열2)
 		String fruits = "appel, apple, banana, peach";
 		boolean tf = fruits.contains("");
@@ -63,6 +69,33 @@ public class StringEx2 {
 		} else {
 			System.out.println("없습니다.");
 		}
+		System.out.println("---------------------------------");
+		
+		
+		// trim( )
+		String tt1 = " aaa aa ";
+		System.out.println("trim()사용전 : "+tt1.length());
+		System.out.println(tt1);
+		String tt2 = tt1.trim();
+		System.out.println("trim()사용후 : "+tt2.length());
+		System.out.println(tt2);
+		System.out.println("---------------------------------");
+		
+		
+		// toLowerCase( ), toUpperCase( )
+		String uuu = "Abcd Efgh";
+		
+		String www = uuu.toLowerCase();
+		System.out.println("toLower : "+www);
+		
+		www = uuu.toUpperCase();
+		System.out.println("toUpper : "+www);
+		System.out.println("---------------------------------");
+		
+
+		// replace( )
+		www = uuu.replace("d E", "kkkkk");
+		System.out.println(www);
 		
 		
 	}
