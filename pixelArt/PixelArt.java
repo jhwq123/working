@@ -1,4 +1,4 @@
-package myProject;
+package pixelArt;
 
 // https://app.monopro.org/pixel/
 // http://dot-e-nanika.com/index_en.html

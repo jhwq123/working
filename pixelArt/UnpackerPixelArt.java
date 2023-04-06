@@ -1,4 +1,4 @@
-package myProject;
+package pixelArt;
 
 // pixelArt는 가로 32개 고정이다.
 // f(x) = 문자 AND f(x-1) = 띄어쓰기 ==> 콤마 넣기
