@@ -1,13 +1,13 @@
 package greenClass;
 
-public class Student extends Human {
+public class StudentVO extends HumanVO {
 
 	private static int cnt;
 	private int number;
 	private String sub;
 	private String major;
 	
-	Student(String name, int age) {
+	StudentVO(String name, int age) {
 		super(name, age);
 		cnt++;
 		this.number = cnt;
@@ -28,7 +28,7 @@ public class Student extends Human {
 	}
 	
 	@Override
-	Human createHuman() {
+	HumanVO createHuman() {
 		return null;
 	}
 	

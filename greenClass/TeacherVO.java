@@ -1,13 +1,13 @@
 package greenClass;
 
-public class Teacher extends Human {
+public class TeacherVO extends StudentVO {
 
 	private String sub;
 	private int money;
 	private int bonus;
 	
 	
-	Teacher(String name, int age) {
+	TeacherVO(String name, int age) {
 		super(name, age);
 	}
 	
@@ -33,12 +33,14 @@ public class Teacher extends Human {
 	}
 	
 	@Override
-	Human createHuman() {
-		Teacher teacher = new Teacher("승호", 40);
-		teacher.setSub("JAVA");
-		teacher.setMoney(2500000);
-		teacher.setBonus(1000000);
-		return teacher;
+	HumanVO createHuman() {
+//		Teacher teacher = new Teacher("승호", 40);
+//		teacher.setSub("JAVA");
+//		teacher.setMoney(2500000);
+//		teacher.setBonus(1000000);
+//		return teacher;
+		return null;
+		// 기능 x
 	}
 	
 	@Override

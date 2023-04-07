@@ -1,13 +1,13 @@
 package greenClass;
 
-public class Human {
+public class HumanVO {
 
 	private String name;
 	private int age;
 	private String id;
 	private String pw;
 	
-	Human(String name, int age) {
+	HumanVO(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
@@ -34,7 +34,7 @@ public class Human {
 		return pw;
 	}
 	
-	Human createHuman() {
+	HumanVO createHuman() {
 		System.out.println("생성해유");
 		return null;
 	}

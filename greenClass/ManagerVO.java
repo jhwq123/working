@@ -1,12 +1,16 @@
 package greenClass;
 
-public class Manager extends Human {
+public class ManagerVO extends TeacherVO {
 
 	private String depart;
 	private String rank;
 	private int money;
 	private int bonus;
 	
+	ManagerVO (String name, int age) {
+		super(name, age);
+	}
+
 	void setDepart(String depart) {
 		this.depart = depart;
 	}
@@ -35,12 +39,9 @@ public class Manager extends Human {
 		return bonus;
 	}
 	
-	Manager (String name, int age) {
-		super(name, age);
-	}
 	
 	@Override
-	Human createHuman() {
+	HumanVO createHuman() {
 		System.out.println("생성해유");
 		return null;
 	}
