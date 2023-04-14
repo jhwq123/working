@@ -15,8 +15,6 @@ public class JdbcTest_Insert {
 		final String uid = "root";
 		final String upw = "1234";
 		Class.forName(driverName);
-		int mno;
-		String name, phone, id, pw;
 
 		// 접속 객체 생성 (Connection)
 		Connection conn = null;
@@ -27,15 +25,15 @@ public class JdbcTest_Insert {
 		stmt = conn.createStatement();
 
 		System.out.print("번호를 입력하세요>>");
-		mno = sc.nextInt();
+		int mno = sc.nextInt();
 		System.out.print("이름을 입력하세요>>");
-		name = sc.next();
+		String name = sc.next();
 		System.out.print("휴대폰 번호를 입력하세요>>");
-		phone = sc.next();
+		String phone = sc.next();
 		System.out.print("id를 입력하세요>>");
-		id = sc.next();
+		String id = sc.next();
 		System.out.print("pw를 입력하세요>>");
-		pw = sc.next();
+		String pw = sc.next();
 
 		String query = "INSERT INTO member (mno, name, phone, id, pw) VALUES (" + mno + ", '" + name + "', '" + phone
 				+ "', '" + id + "', '" + pw + "')";

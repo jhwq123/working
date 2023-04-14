@@ -2,8 +2,11 @@ package study_230412;
 
 import lombok.Data;
 
-//@AllArgsConstructor // 모든 데이터를 담는 생성자를 자동으로 만든다.
-@Data // 모든 데이터들의 get() set()을 자동으로 만든다.
+//@AllArgsConstructor // 피라미터 있는 기본 생성자 자동 생성
+//@NoArgsConstructor // 피라미터 없는 기본 생성자 자동 생성
+//@ToString // toString 자동 생성 
+@Data // 모든 데이터 get() set() 자동 생성
+
 public class Member {
 
 	private int mno;

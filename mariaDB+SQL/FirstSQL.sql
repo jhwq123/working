@@ -11,13 +11,20 @@ GRANT ALL PRIVILEGES ON green01.* TO 'khw'@'localhost';
 SHOW GRANTS FOR 'khw'@'localhost';
 
 -- Index 생성
-CREATE INDEX idx_member ON member(id);
-SHOW INDEX FROM member;
+CREATE TABLE temp (
+	c1 INT,
+	c2 VARCHAR(10)
+);
 
+INSERT INTO temp
+(c1 , c2) VALUES
+(10 , 'AA');
 
-INSERT INTO member
-(NAME, phone, id, pw) VALUES
-('이수영', '010-8546-5644', 'jhwq1231', '1234');
+SELECT * FROM member
+WHERE NAME = '철수';
 
-SELECT NAME, id, pw FROM member
-WHERE NAME = '김홍수';
+UPDATE member SET pw = '1234'
+WHERE id LIKE '%jhwq%' AND phone LIKE '%010%';
+
+DELETE FROM temp
+WHERE s1 = 100;
