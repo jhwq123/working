@@ -13,15 +13,15 @@ public class BoardDAO {
 	Scanner sc = new Scanner(System.in);
 	String table = "notice";
 	String query = "";
-	int pageCnt = 0;
 	int pageIdx = 0;
+	int pageCnt = 1;
+	int pageTotal = 0;
 	ArrayList<BoardVO> blist = new ArrayList<>();
-	ArrayList<Integer> pagelist = new ArrayList<>();
 
 	// CRUD
 
 	void mainDB() throws Exception {
-		System.out.println("\n1.게시글쓰기 / 2.게시글보기 / 3.게시글수정 / 4.게시글지우기");
+		System.out.println("\n1.게시글쓰기 / 2.게시글보기 / 3.게시글수정 / 4.게시글지우기 / 8.다음페이지 / 9. 이전페이지");
 		System.out.print("실행할 명령을 입력하세요>>");
 		int sel = sc.nextInt();
 		switch (sel) {
@@ -40,6 +40,22 @@ public class BoardDAO {
 			break;
 		case 4:
 			delete();
+			break;
+		case 8:
+			if (pageCnt < pageTotal) {
+				pageIdx += 10;
+				pageCnt++;
+			} else {
+				System.out.println("마지막 페이지입니다.");
+			}
+			break;
+		case 9:
+			if (pageCnt > 1) {
+				pageIdx -= 10;
+				pageCnt--;
+			} else {
+				System.out.println("첫 페이지입니다.");
+			}
 			break;
 		}
 	}
@@ -84,8 +100,19 @@ public class BoardDAO {
 		autoStmt.executeUpdate(autoQuery2);
 		autoStmt.executeUpdate(autoQuery3);
 
-		String query = "SELECT bno, title, writer, regDate FROM " + table;
-		PreparedStatement stmt = DBcon.getConnection().prepareStatement(query);
+		String query1 = "SELECT COUNT (bno) AS CntBno FROM " + table;
+		PreparedStatement stmt1 = DBcon.getConnection().prepareStatement(query1);
+		ResultSet rs1 = stmt1.executeQuery();
+		rs1.next();
+		int temp = rs1.getInt(1);
+		if (temp % 10 == 0 && temp != 0) {
+			pageTotal = (rs1.getInt(1) / 10);
+		} else {
+			pageTotal = (rs1.getInt(1) / 10) + 1;
+		}
+
+		String query2 = "SELECT bno, title, writer, regDate FROM " + table + " LIMIT " + pageIdx + ", 10";
+		PreparedStatement stmt = DBcon.getConnection().prepareStatement(query2);
 		ResultSet rs = stmt.executeQuery();
 
 		System.out.println("\n\n\n\n\n");
@@ -100,18 +127,10 @@ public class BoardDAO {
 			String regDate = rs.getString("regDate");
 			b.setRegDate(regDate);
 			blist.add(b);
-			pageCnt++;
-			if (pageCnt % 10 == 0 && pageCnt != 0) {
-				pagelist.add(pageIdx + 1);
-				System.out.println("====== " + pagelist.get(pageIdx) + " 번째 페이지======");
-				pageIdx++;
-			}
 
 			System.out.println(bno + " | " + title + " | " + writer + " | " + regDate + " | ");
 		}
-		pagelist.add(pageIdx + 1);
-		System.out.println("====== " + pagelist.get(pageIdx) + " 번째 페이지======");
-
+		System.out.println("=============== " + pageCnt + "/" + pageTotal + "pages ==================");
 	}
 
 	void selectInfo(int bno) throws Exception {

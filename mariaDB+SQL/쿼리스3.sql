@@ -8,3 +8,7 @@ WHERE bno = 3;
 ALTER TABLE notice AUTO_INCREMENT = 1;
 SET @COUNT = 0;
 UPDATE notice SET bno = @COUNT:=@COUNT+1;
+
+SELECT COUNT(bno) AS cntBno FROM notice;
+
+SELECT * FROM member LIMIT 0, 10;
