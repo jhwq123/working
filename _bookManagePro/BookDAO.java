@@ -1,5 +1,5 @@
 package _bookManagePro;
 
-public class Book {
+public class BookDAO {
 
 }

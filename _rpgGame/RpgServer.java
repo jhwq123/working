@@ -1,4 +1,4 @@
-package rpgGame;
+package _rpgGame;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

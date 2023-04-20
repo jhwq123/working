@@ -1,4 +1,4 @@
-package rpgGame;
+package _rpgGame;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

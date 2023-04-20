@@ -5,10 +5,9 @@ public abstract class ClassAbstract {
 	int n;
 	double d;
 	String s;
-	
+
 	abstract void A();
+
 	abstract void B();
-	
-	
-	
+
 }

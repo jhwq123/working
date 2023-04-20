@@ -1,10 +1,8 @@
-package rpgGame;
+package _rpgGame;
 
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-@ToString
 public class PlayerVO {
 
 	private int rank;
