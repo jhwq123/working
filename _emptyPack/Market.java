@@ -2,12 +2,24 @@ package _emptyPack;
 
 public class Market {
 
-	void setFluits(Fluits f) {
-		f.buy(f.name);
-		System.out.println(f.name+"한상자 주문이요.");
+	private static int totalMoney;
+
+	public static void setPocketMoney(int totalMoney) {
+		Market.totalMoney = totalMoney;
 	}
-	
-	void getFluits(Fluits f) {
-		System.out.println(f.name+"한상자 나왔습니다.");
+
+	public static int getPocketMoney() {
+		return totalMoney;
+	}
+
+	public static void setFluits(Fruits f) {
+		System.out.println(f.name + " 하나 주문이요.");
+		f.buy();
+		totalMoney += f.money;
+		System.out.println("구매 총액: " + totalMoney);
+	}
+
+	public static void getFluits(Fruits f) {
+		System.out.println(f.name + " 하나 나왔습니다.");
 	}
 }

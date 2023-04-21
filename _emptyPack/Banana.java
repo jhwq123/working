@@ -1,14 +1,8 @@
 package _emptyPack;
 
-public class Banana extends Fluits {
+public class Banana extends Fruits {
 
-	Banana(String name) {
-		super(name);
+	public Banana(String name, int money) {
+		super(name, money);
 	}
-	
-	@Override
-	void buy(String name) {
-		System.out.println(name+" 구매 완료");
-	}
-	
 }
