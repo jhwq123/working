@@ -1,11 +1,8 @@
 package study_230424;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ContentService {
 
@@ -39,23 +36,25 @@ public class ContentService {
 
 		String newWriter = "깜찍이";
 
-		String query1 = "INSERT INTO conTblUpdate VALUES (?, ?, ?, ?, ?, ?, ?)";
-		PreparedStatement stmt1 = DBCon.getConnection().prepareStatement(query1);
-
-		ContentVO c = cList.get(2);
-		Date now = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
-		String formatedNow = formatter.format(now);
-
-		stmt1.setInt(1, c.getCno());
-		stmt1.setString(2, c.getName());
-		stmt1.setString(3, c.getDetail());
-		stmt1.setString(4, c.getWriter());
-		stmt1.setString(5, c.getIsDate());
-		stmt1.setString(6, formatedNow);
-		stmt1.setString(7, newWriter);
-
-		stmt1.executeUpdate();
+//		트리거 기능을 자바에서 구현하기 위해 만들어짐 
+//
+//		String query1 = "INSERT INTO conTblUpdate VALUES (?, ?, ?, ?, ?, ?, ?)";
+//		PreparedStatement stmt1 = DBCon.getConnection().prepareStatement(query1);
+//
+//		ContentVO c = cList.get(2);
+//		Date now = new Date();
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+//		String formatedNow = formatter.format(now);
+//
+//		stmt1.setInt(1, c.getCno());
+//		stmt1.setString(2, c.getName());
+//		stmt1.setString(3, c.getDetail());
+//		stmt1.setString(4, c.getWriter());
+//		stmt1.setString(5, c.getIsDate());
+//		stmt1.setString(6, formatedNow);
+//		stmt1.setString(7, newWriter);
+//
+//		stmt1.executeUpdate();
 
 		String query2 = "UPDATE conTbl SET writer = '" + newWriter + "' WHERE cno = 3";
 		Statement stmt2 = DBCon.getConnection().createStatement();
@@ -64,22 +63,24 @@ public class ContentService {
 
 	void delete() throws Exception {
 
-		String query1 = "INSERT INTO conTblDelete VALUES (?, ?, ?, ?, ?, ?)";
-		PreparedStatement stmt1 = DBCon.getConnection().prepareStatement(query1);
-
-		ContentVO c = cList.get(3);
-		Date now = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
-		String formatedNow = formatter.format(now);
-
-		stmt1.setInt(1, c.getCno());
-		stmt1.setString(2, c.getName());
-		stmt1.setString(3, c.getDetail());
-		stmt1.setString(4, c.getWriter());
-		stmt1.setString(5, c.getIsDate());
-		stmt1.setString(6, formatedNow);
-
-		stmt1.executeUpdate();
+// 		트리거 기능을 자바에서 구현하기 위해 만들어짐
+//
+//		String query1 = "INSERT INTO conTblDelete VALUES (?, ?, ?, ?, ?, ?)";
+//		PreparedStatement stmt1 = DBCon.getConnection().prepareStatement(query1);
+//
+//		ContentVO c = cList.get(3);
+//		Date now = new Date();
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+//		String formatedNow = formatter.format(now);
+//
+//		stmt1.setInt(1, c.getCno());
+//		stmt1.setString(2, c.getName());
+//		stmt1.setString(3, c.getDetail());
+//		stmt1.setString(4, c.getWriter());
+//		stmt1.setString(5, c.getIsDate());
+//		stmt1.setString(6, formatedNow);
+//
+//		stmt1.executeUpdate();
 
 		String query2 = "DELETE FROM conTbl WHERE cname = '작성물4'";
 		Statement stmt2 = DBCon.getConnection().createStatement();

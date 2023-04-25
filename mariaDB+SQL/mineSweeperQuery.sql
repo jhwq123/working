@@ -1,0 +1,16 @@
+CREATE TABLE playerDB (
+	id VARCHAR(20) PRIMARY KEY,
+	pw VARCHAR(10) NOT NULL,
+	pname VARCHAR(20) NOT NULL,
+	phone VARCHAR(13)
+);
+
+DESC playerdb;
+
+CREATE TABLE rankDB (
+	id VARCHAR(20) NOT NULL,
+	rname VARCHAR(10) NOT NULL,
+	rrank INT(5) NOT NULL
+);
+
+DESC rankdb;

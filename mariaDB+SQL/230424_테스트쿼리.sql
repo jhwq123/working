@@ -80,6 +80,4 @@ DELETE FROM contbl WHERE cname = '작성물4';
 
 UPDATE contbl SET writer = '깜찍스' WHERE cno = 3;
 
--- 작성자별 게시글 수 개수 확인하기
-SELECT writer, COUNT(writer) FROM conTbl
-GROUP BY writer;
+DELETE FROM testtbl WHERE score = 80;
