@@ -1,0 +1,44 @@
+# 230425_수업내용
+
+## 게임 제작하기 (랭킹시스템)
+
+- 자바 지뢰찾기 게임 설계
+- 타이틀에 공지사항, 플레이어 랭킹정보(아이디, 이름, 순위)가 제공
+- 게임은 회원/비회원 모두 이용 가능
+- 단, 게임점수 저장 시 회원가입이 필수
+- 회원 정보는 아이디, 패스워드, 이름, 연락처로 구성됨
+- 아이디와 이름은 20자를 넘을 수 없고, 패스워드는 10자리 초과 불가
+- 연락처 13자리 표기
+- 회원정보중 연락처는 필수항목 아님
+- 점수판 정보는 아이디, 점수로 구성됩니다.
+- 게임페이지 상단 최고 점수 표시. (저는 지뢰찾기해볼려고)
+
+## 개인공부스
+
+### UML (Unified Modeling Language)
+
+- 통합 모델링 언어
+
+### SQL 만 사용한 프로젝트
+
+### JAVA 만 사용한 프로젝트
+
+### HTML 만 사용한 프로젝트
+
+### CSS 만 사용한 프로젝트
+
+### JavaScript 만 사용한 프로젝트
+
+### C 만 사용한 프로젝트 - 데이터 처리, 계산,
+
+- 간단 제어..
+
+### C++ 만 사용한 프로젝트
+
+- 공학용 계산기 만들기 (그래프도 그려주는)
+
+### Python 만 사용한 프로젝트 - 머신러닝, 크롤링, 웹, 데이터
+
+- Machine Learning ([https://www.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS8609067358](https://www.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS8609067358))
+- Package
+([https://deukyu.tistory.com/46](https://deukyu.tistory.com/46))
