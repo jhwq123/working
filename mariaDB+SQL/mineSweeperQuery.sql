@@ -8,12 +8,13 @@ CREATE TABLE playerDB (
 
 DESC playerdb;
 
-CREATE TABLE rankDB (
-	id VARCHAR(20) NOT NULL,
+CREATE TABLE rankdb (
+	rrank INT(5) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	rname VARCHAR(10) NOT NULL,
-	rrank INT(5) NOT NULL,
 	score INT(10) NOT NULL
 );
+
+DROP TABLE rankdb;
 
 DESC rankdb;
 
@@ -22,4 +23,6 @@ CREATE TABLE guestLog (
 	score INT(10) NOT NULL
 )
 
-DESC guestLog;
+DESC guestlog;
+
+SELECT COUNT(*) AS flag FROM playerdb WHERE id = 'pao12' AND pw = 'y}v~v}y|';
