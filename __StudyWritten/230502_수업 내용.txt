@@ -1,0 +1,110 @@
+# 230502_수업내용
+
+## 인터페이스의 용도
+
+```java
+IScoreManager sm = null;
+
+// A학원 관리자로 로그인하면.
+if (input_id.equals(id1) && input_pw.equals(pw1)) {
+	sm = new AcademyA();
+} else if (input_id.equals(id2) && input_pw.equals(pw2)) {
+	sm = new AcademyB();
+}
+
+sm.regist(student);
+int total = sm.getTotal(student);
+System.out.println("총점 : " + total);
+double avg = sm.getAvg(total, student.getSubjects().length);
+System.out.println("평균 : " + avg);
+String msg = sm.passOrFail(student);
+System.out.println(msg);
+
+// 같은 방식으로 쓸수가있다~
+```
+
+## IO Stream
+
+- in : 사용자 → 프로그램
+- out : 프로그램 → 사용자
+
+# 데이터 넘기는 java 메소드 종류
+
+## <Input>
+
+- InputStream
+    - 키보드 입력을 스트림 객체에 할당한다.
+    - 1바이트씩 데이터 읽어 정수코드 값으로 반환한다.
+    - 때문에 한글은 폰트가 깨져서 나온다.
+- FileInputStream
+    - 실제 파일에서 값을 읽는다.
+    - 1바이트씩 데이터 읽어 정수코드 값으로 반환한다.
+    - 때문에 한글은 폰트가 깨져서 나온다.
+- BufferedInputStream
+    - 버퍼에서 1바이트씩 읽는데, 램에 임시 저장.
+    - 한 8000바이트까지는 임시 저장 가능.
+    - 때문에 한글은 폰트가 깨져서 나온다.
+- InputStreamReader
+    - 배열의 길이만큼 문자를 읽은 후 읽은 문자를 반환한다.
+    - 2바이트씩 데이터 읽어 정수코드 값으로 반환한다.
+    - 한글도 됨.
+
+## <Output>
+
+- OutputStream
+    - 키보드 입력을 스트림 객체에 할당한다.
+    - 1바이트씩 데이터 읽어 정수코드 값으로 반환한다.
+    - 때문에 한글은 폰트가 깨져서 나온다.
+- 
+
+## JAVA 네트워크 프로그래밍 절차
+
+1. 네트워크와 연결된 어떤 존재(객체)를 얻어낸다.
+2. 데이터를 읽고 싶다면 InputStream을 연결한다.
+3. 데이터를 쓰고 싶다면 OutputStream을 연결한다.
+4. 이후의 모든 작업은 입출력 프로그래밍과 동일하다.
+
+## TCP vs UDP
+
+- TCP : 연결지향형, 핸드쉐이크(악수), 안정성이 좋음, 속도는 그럭저럭
+- UDP : 일방적, 확인절차 없음, 안정성 보장 못함, 속도는 좋음
+
+## Socket
+
+- 네트워크를 통해 메시지를 주고받는 장치(객체)
+- 네트워크 통신을 흔히 소켓통신 이라고도 함.
+
+## 패킷
+
+- 네트워크에 전송되는 조각난 데이터.
+
+## 프로토콜
+
+- 조각난 데이터를 어떻게 다시 조립할 건지에 대한 약속.
+
+## 포트
+
+- 채널의 개념
+
+## 서버-클라이언트
+
+- 서버 : 서비스를 제공하는 쪽파
+- 클라이언트 : 서비스를 요청하는 쪽파
+    
+    ![AggravatingAnimatedHarrierhawk.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fa491184-ab20-4cb8-a187-d4e22f823ed1/AggravatingAnimatedHarrierhawk.webp)
+    
+
+## 클라이언트
+
+- 요청하는 쪽.
+
+## 자바에서 하는 일
+
+1. 소켓 서버를 만든다.
+    - 클라이언트의 접속을 기다린다.
+2. 클라이언트 쪽 소켓을 만든다.
+    - 서버에 접속을 요청한다.
+
+maven repository (java jar파일들 다운받을때 쓰는 사이트)
+
+나중에 옮겨 둘 것.

@@ -1,0 +1,227 @@
+## [Multi]Thread (쓰레드)
+
+- 프로세스 내에 생성되는 새로운 프로그램 흐름.
+- 프로세스 내에서 실행되는 세부 실행 단위.
+- run( ), start( ), 별도의 흐름을 가진다.
+- Thread.sleep(1000) 시간차.
+
+## [Multi]Process (프로세스)
+
+- CPU가 실행 중인 프로그램.
+- 프로그램이 실행되는 하나의 흐름
+
+### Client1
+
+```java
+package study_230508;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client1 {
+	public static void main(String[] args) throws Exception {
+
+		Socket socket = null;
+		BufferedReader in = null;
+		PrintWriter out = null;
+		Scanner sc = new Scanner(System.in);
+
+		try {
+			socket = new Socket("192.168.0.71", 5000);
+			out = new PrintWriter(socket.getOutputStream());
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			String resultMe, resultYou, resultHost, title;
+
+			System.out.println("호스트 연결 대기중...");
+
+			// 타이틀 출력
+			while (!(title = in.readLine()).equals(" ")) {
+				System.out.println(title);
+			}
+
+			while (true) {
+				// 쓴이1이 입력
+				System.out.print("│>> 쓴이1 : ");
+				resultMe = sc.nextLine();
+				// 쓴이1 내용 출력
+				out.println(resultMe);
+				out.flush();
+				// 쓴이2 내용 받을준비
+				System.out.print("│>> 쓴이2 답장> ");
+				// 쓴이2 내용 받기
+				resultYou = in.readLine();
+				System.out.println(resultYou);
+				// 호스트 내용 받을준비
+				System.err.print("│>> 호스트 답장> ");
+				// 호스트 내용 받기
+				resultHost = in.readLine();
+				System.err.println(resultHost);
+				// 반복
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			socket.close();
+			in.close();
+			out.close();
+			sc.close();
+		}
+
+	}
+}
+```
+
+### Client2
+
+```java
+package study_230508;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client2 {
+	public static void main(String[] args) throws Exception {
+
+		Socket socket = null;
+		BufferedReader in = null;
+		PrintWriter out = null;
+		Scanner sc = new Scanner(System.in);
+
+		try {
+			socket = new Socket("192.168.0.71", 5000);
+			out = new PrintWriter(socket.getOutputStream());
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			String resultMe, resultYou, resultHost, title;
+
+			System.out.println("호스트 연결 대기중...");
+
+			// 타이틀 출력
+			while (!(title = in.readLine()).equals(" ")) {
+				System.out.println(title);
+			}
+
+			while (true) {
+				// 쓴이1 내용 받을준비
+				System.out.print("│>> 쓴이1 답장> ");
+				// 쓴이1 내용 받기
+				resultYou = in.readLine();
+				System.out.println(resultYou);
+				// 쓴이2이 입력
+				System.out.print("│>> 쓴이2 : ");
+				resultMe = sc.nextLine();
+				// 쓴이2 내용 출력
+				out.println(resultMe);
+				out.flush();
+				// 호스트 내용 받을준비
+				System.err.print("│>> 호스트 답장> ");
+				// 호스트 내용 받기
+				resultHost = in.readLine();
+				System.err.println(resultHost);
+				// 반복
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			socket.close();
+			in.close();
+			out.close();
+			sc.close();
+		}
+
+	}
+}
+```
+
+- 동기형 프로그램 (순서를 지켜야 함.)
+- 비동기형 프로그램 (순서를 안지켜도 된다.)
+
+### ClientThread
+
+```java
+package 김현우;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+class InputThread2 implements Runnable {
+
+	BufferedReader in = null;
+	PrintWriter out = null;
+	String result;
+
+	InputThread2(BufferedReader in) {
+		this.in = in;
+	}
+
+	@Override
+	public void run() {
+		while (true) {
+			try {
+				// 쓴이2 내용 받을준비
+				result = in.readLine();
+				// 쓴이2 내용 받기
+				System.out.println("\n" + result);
+				Thread.sleep(100);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+public class ChatClient {
+	public static void main(String[] args) throws Exception {
+
+		Socket socket = null;
+		BufferedReader in = null;
+		PrintWriter out = null;
+		Scanner sc = new Scanner(System.in);
+		String result, name;
+
+		try {
+			System.out.print("닉네임을 입력하세요>>");
+			name = sc.next();
+			System.out.println("호스트 연결 대기중...");
+			socket = new Socket("192.168.0.71", 5000);
+			out = new PrintWriter(socket.getOutputStream());
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			String title;
+			Thread t = new Thread(new InputThread2(in));
+
+			// 타이틀 출력
+			while (!(title = in.readLine()).equals(" ")) {
+				System.out.println(title);
+			}
+
+			t.start();
+			result = sc.nextLine();
+
+			while (true) {
+				// 내 내용 입력
+				result = "│>>" + name + " : " + sc.nextLine();
+				System.out.print(result);
+				// 내 내용 보내기
+				out.println(result);
+				out.flush();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			socket.close();
+			in.close();
+			out.close();
+			sc.close();
+		}
+
+	}
+}
+```
