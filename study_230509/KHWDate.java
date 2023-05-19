@@ -36,6 +36,79 @@ public class KHWDate {
 
 	// public method
 
+	public long getDiffDate(int year, int month, int day) { // 날짜간 차이 구하기 (현재 날짜와의 차이를 일수로 나타내기)
+		long result = -1;
+		int fYear = 0, fMonth = 0, fDay = 0, pYear = 0, pMonth = 0, pDay = 0;
+		int tempYear, tempMonth, tempDay;
+
+		// 받은 연, 월, 일 값이 맞는지 확인
+		if (calcDate(year, month, day)) {
+			// 1. 미래 연도날짜와 과거 연도날짜를 구함
+			if (myYear >= year) {
+				fYear = myYear;
+				fMonth = myMonth;
+				fDay = myDay;
+				pYear = year;
+				pMonth = month;
+				pDay = day;
+			} else if (myYear < year) {
+				fYear = year;
+				fMonth = month;
+				fDay = day;
+				pYear = myYear;
+				pMonth = myMonth;
+				pDay = myDay;
+				result += 1;
+			}
+
+			if (fYear == pYear && fMonth == pMonth && fDay == pDay) {
+				System.out.println("두 날짜의 일수가 같습니다.");
+				result = 0;
+			}
+
+			result++;
+
+			tempYear = pYear;
+			tempMonth = pMonth;
+			tempDay = months[tempMonth - 1] - pDay;
+			if (tempMonth == 2) {
+				if ((tempYear % 4 == 0 && !(tempYear % 100 == 0)) || year % 400 == 0) {
+					tempDay++;
+				}
+			}
+			tempMonth++;
+
+			// 달 차이가 안나면 구하는 식을 추가로 넣어줘야 함.
+			if (fYear == pYear && fMonth == pMonth) {
+				return fDay - pDay;
+			}
+
+			// 2. 과거 연도날짜부터 시작해서 미래 연도날짜까지 일수를 더해가면서 판별함
+			// 원하는 연도에 도달할때까지 반복
+			while (tempYear < fYear || tempMonth < fMonth) {
+				// 2월에는 현재 tempYear이용한 윤달 검증
+				if (tempMonth == 2) {
+					if ((tempYear % 4 == 0 && !(tempYear % 100 == 0)) || year % 400 == 0) {
+						result++;
+					}
+				}
+				result += months[tempMonth - 1];
+				tempMonth++;
+				// 12월 도달 시 연도 1 추가 카운트
+				if (tempMonth == 13) {
+					tempYear++;
+					tempMonth = 1;
+				}
+			}
+			// 3. 미래 연도날짜까지 도달 후 카운트된 일수를 반환함
+			// 남은 일수 추가로 더해주기
+			result += fDay + tempDay;
+
+		}
+		return result;
+
+	}
+
 	public String getFullDate() {
 		String monthTemp = "";
 		String dayTemp = "";
@@ -354,14 +427,17 @@ public class KHWDate {
 
 	// private
 
-	private void calcDate(int myYear, int myMonth, int myDay) {
+	private boolean calcDate(int myYear, int myMonth, int myDay) {
+		boolean pass = true;
 		// year
 		if (myYear < 1) {
 			System.err.println("연도 범위 초과.");
+			pass = false;
 		} else {
 			// month
 			if (myMonth < 1 || myMonth > 12) {
 				System.err.println("월 범위 초과.");
+				pass = false;
 			} else {
 				// day
 				int temp = 0;
@@ -379,9 +455,11 @@ public class KHWDate {
 				}
 				if (myDay < 1 || myDay > temp) {
 					System.err.println("일 범위 초과.");
+					pass = false;
 				}
 			}
 		}
+		return pass;
 	}
 
 	private static int getWeek(int year, int month, int day) {
