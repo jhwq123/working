@@ -33,14 +33,14 @@ public class DateTest {
 //		System.out.println(todayMonthEng);
 
 		// 이전일 때
-		System.out.println(d5.getDiffDate(2021, 7, 4)); // 정상
-		System.out.println(d5.getDiffDate(2023, 2, 18)); // (90) -3
-		System.out.println(d5.getDiffDate(2023, 6, 18)); // (30) -1
-		System.out.println(d5.getDiffDate(2023, 5, 4)); // 정상
+//		System.out.println(d5.getDiffDate(2021, 7, 4)); // 정상
+//		System.out.println(d5.getDiffDate(2023, 2, 18)); // (90) -3
+//		System.out.println(d5.getDiffDate(2023, 6, 18)); // (30) -1
+//		System.out.println(d5.getDiffDate(2023, 5, 4)); // 정상
 		// 이후일 때
-		System.out.println(d5.getDiffDate(2025, 5, 18)); // 정상
-		System.out.println(d5.getDiffDate(2023, 8, 18)); // 정상
-//		System.out.println(d5.getDiffDate(2023, 5, 30)); // 정상
+//		System.out.println(d5.getDiffDate(2025, 5, 18)); // 정상
+//		System.out.println(d5.getDiffDate(2023, 8, 18)); // 정상
+		System.out.println(d5.getDiffDate(2026, 3, 21)); // 정상
 
 	}
 
