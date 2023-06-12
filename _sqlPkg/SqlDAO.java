@@ -9,23 +9,22 @@ import java.sql.Statement;
 // 어떤 데이터라도 받아서 자동으로 생성가능하게 DB를 짜보자
 public class SqlDAO {
 
-	SqlUI ui = new SqlUI();
 	private String url = "jdbc:mariadb://localhost:3306/";
+	private String dbName = "jspcon";
 	private final String uid = "root";
 	private final String upw = "1234";
 	private final String driverName = "org.mariadb.jdbc.Driver";
 	private Connection con;
 	private int dataCnt;
-
+	
 	// 테이블 생성 코드 + 예외처리 이용한 테이블 자동생성 가능해 보임
-	SqlDAO(String db) throws Exception {
-		url = url + db;
-		Class.forName(driverName);
-		con = DriverManager.getConnection(url, uid, upw);
-	}
 
 	void create(String table, Object obj) throws Exception {
 
+		url = url + dbName;
+		Class.forName(driverName);
+		con = DriverManager.getConnection(url, uid, upw);
+		
 		String[] data = conElements(obj);
 
 		String queryI = "INSERT INTO " + table + " VALUES (";
@@ -65,16 +64,12 @@ public class SqlDAO {
 		} else {
 			ResultSet rs = stmt.executeQuery(queryS);
 
-			ui.topGrid(dataCnt);
-			ui.titleGrid(data);
-			ui.betweenGrid(dataCnt);
 			while (rs.next()) {
 				for (int i = 0; i < data.length; i++) {
 					System.out.print("│" + rs.getString(data[i]) + "\t");
 				}
 				System.out.println("│");
 			}
-			ui.bottomGrid(dataCnt);
 		}
 	}
 
@@ -90,17 +85,14 @@ public class SqlDAO {
 		return flag;
 	}
 
-	// UPDATE *table* SET pno = 3 WHERE pname = "홍길동"
+	// UPDATE 다시손보자
 	void update(String table, Object obj) throws Exception {
 		read(table, obj);
-
-		String selKey = ui.userInput("선택할 요소");
-		String temp1 = selKey + "의 선택할 ";
-		String selValue = ui.userInputS(temp1);
-		String chgKey = ui.userInput("바꿀 요소");
-		String temp2 = chgKey + "의 바꿀 ";
-		String chgValue = ui.userInputS(temp2);
-
+		String chgKey = "";
+		String chgValue = "";
+		String selKey = "";
+		String selValue = "";
+		
 		String queryU = "UPDATE " + table + " ";
 		queryU += "SET " + chgKey + " = '" + chgValue + "' ";
 		queryU += "WHERE " + selKey + " = '" + selValue + "'";
@@ -117,13 +109,12 @@ public class SqlDAO {
 
 	}
 
-	// DELETE FROM *table* WHERE pno = 3;
+	// DELETE 다시손보자
 	void delete(String table, Object obj) throws Exception {
 		read(table, obj);
 
-		String selKey = ui.userInput("삭제할 요소");
-		String temp = selKey + "의 삭제할";
-		String selValue = ui.userInputS(temp);
+		String selKey = "";
+		String selValue = "";
 
 		String queryD = "DELETE FROM " + table + " ";
 		queryD += "WHERE " + selKey + " = '" + selValue + "'";
