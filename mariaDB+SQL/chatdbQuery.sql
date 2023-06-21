@@ -1,0 +1,17 @@
+CREATE TABLE TBL_MSG(
+	ccode int(4) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	cname VARCHAR(5) NOT NULL,
+	msg VARCHAR(30) NOT NULL
+);
+
+INSERT INTO TBL_MSG (cname, msg) VALUES
+('강아지', '안뇽스');
+
+
+SELECT * FROM tbl_msg;
+
+SELECT * FROM tbl_msg ORDER BY ccode ASC LIMIT 0,1;
+
+SELECT * FROM
+(SELECT * FROM tbl_msg ORDER BY ccode DESC LIMIT 0,15)
+tbl_msg ORDER BY ccode ASC;

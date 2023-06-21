@@ -1,3 +1,11 @@
+CREATE TABLE tbl_color(
+	cnum INT(2),
+	color VARCHAR(10)
+);
+
+INSERT INTO tbl_color VALUES
+(1, "#dc2f2f"), (2, "#e8630a"), (3, "#f8da5b"), (4, "#118a7e"), (5, "#2772db"), (6, "#070f4e"), (7, "#5e63b6");
+
 CREATE TABLE member_tbl_02(
 	custno INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	custname VARCHAR(20),
@@ -52,3 +60,5 @@ SELECT * FROM moneyview;
 SELECT * FROM member_tbl_02 WHERE custno = "100005";
 
 UPDATE member_tbl_02 SET phone = "010-1111-6666" WHERE custname = "진평화";
+
+SELECT color FROM tbl_color WHERE cnum = 1;
