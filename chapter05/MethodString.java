@@ -51,7 +51,7 @@ public class MethodString {
 	
 	static void printSentence (String[] s) {
 		for (int i = 0; i < 3; i++) {
-			System.out.print(s[i]+" ");
+			System.out.print(s[i]+"");
 		}
 	}
 

@@ -32,7 +32,7 @@ public class LottoMake {
 	
 	static void printNum(int[] num) {
 		for (int i = 0; i < 6; i++) {
-			System.out.print(num[i]+" ");
+			System.out.print(num[i]+"");
 		}
 	}
 }

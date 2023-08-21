@@ -93,7 +93,7 @@ public class SqlDAO {
 		String selKey = "";
 		String selValue = "";
 		
-		String queryU = "UPDATE " + table + " ";
+		String queryU = "UPDATE " + table + "";
 		queryU += "SET " + chgKey + " = '" + chgValue + "' ";
 		queryU += "WHERE " + selKey + " = '" + selValue + "'";
 
@@ -116,7 +116,7 @@ public class SqlDAO {
 		String selKey = "";
 		String selValue = "";
 
-		String queryD = "DELETE FROM " + table + " ";
+		String queryD = "DELETE FROM " + table + "";
 		queryD += "WHERE " + selKey + " = '" + selValue + "'";
 
 		Statement stmt = con.createStatement();

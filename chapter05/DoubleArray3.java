@@ -113,7 +113,7 @@ public class DoubleArray3 {
 		System.out.println("=========");
 		for (int i = 0; i < tempLand.length; i++) {
 			for (int j = 0; j < tempLand[i].length; j++) {
-				System.out.print(tempLand[i][j]+" ");
+				System.out.print(tempLand[i][j]+"");
 			}
 			System.out.println("");
 		}

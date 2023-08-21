@@ -8,12 +8,12 @@ public class ContinueSamYukGu {
 				System.out.println("짝 ");
 				continue;
 			}
-			System.out.println(i+" ");
+			System.out.println(i+"");
 			
 //			if (i%3 == 0) {
 //				System.out.print("짝 ");
 //			} else {
-//				System.out.print(i+" ");
+//				System.out.print(i+);
 //			}
 		}
 	}

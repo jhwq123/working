@@ -202,7 +202,7 @@ public class SqlDAO {
 		String temp2 = chgKey + "의 바꿀 ";
 		String chgValue = ui.userInputS(temp2);
 
-		String queryU = "UPDATE " + table + " ";
+		String queryU = "UPDATE " + table + "";
 		queryU += "SET " + chgKey + " = '" + chgValue + "' ";
 		queryU += "WHERE " + selKey + " = '" + selValue + "'";
 
@@ -278,7 +278,7 @@ public class SqlDAO {
 		String temp = selKey + "의 삭제할";
 		String selValue = ui.userInputS(temp);
 
-		String queryD = "DELETE FROM " + table + " ";
+		String queryD = "DELETE FROM " + table + "";
 		queryD += "WHERE " + selKey + " = '" + selValue + "'";
 
 		Statement stmt = con.createStatement();

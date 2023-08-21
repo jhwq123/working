@@ -12,7 +12,7 @@ public class ArrayXY_Reverse {
 		}	
 		
 		for (int i = 0; i < 5; i++) {
-			System.out.println(x[i]+" "+y[i]);
+			System.out.println(x[i]+""+y[i]);
 		}
 		// 초기 값들이 다 정의되기 전에 값을 뽑아서 문제가 생김.
 

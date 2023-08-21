@@ -18,7 +18,7 @@ public class ArrayXY {
 		for (int j = 0; j < 5; j++) {
 			// 방법2 >> 독단적인 값을 넘겨주기 때문에 다른값으로 움직임
 			// y[j] = x[j];
-			System.out.println(x[j]+" "+y[j]);			
+			System.out.println(x[j]+""+y[j]);			
 		}
 	}
 }

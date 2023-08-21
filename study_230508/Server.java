@@ -78,7 +78,7 @@ public class Server {
 			// 문자 받기 -> in.read();
 			// 문자열 받기 -> in.readLine();
 			// 문자열 계속받기 ->
-			// while (!(title = in.readLine()).equals(" ")) {
+			// while (!(title = in.readLine()).equals()) {
 			// System.out.println(title);
 			// }
 

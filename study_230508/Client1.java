@@ -23,7 +23,7 @@ public class Client1 {
 			System.out.println("호스트 연결 대기중...");
 
 			// 타이틀 출력
-			while (!(title = in.readLine()).equals(" ")) {
+			while (!(title = in.readLine()).equals("")) {
 				System.out.println(title);
 			}
 

@@ -195,13 +195,13 @@ public class KHWDate {
 
 		// 결과 값 모사하기 nowWeek, nowYear, nowMonth, nowDay,
 		// nowHour, nowMin, nowSec, nowMiliSec
-		System.out.print(nowWeek + " ");
-		System.out.print(monthEngs[nowMonth - 1] + " ");
+		System.out.print(nowWeek + "");
+		System.out.print(monthEngs[nowMonth - 1] + "");
 		if (nowDay < 10) {
 			System.out.print("0");
 		}
-		System.out.print(nowDay + " ");
-		System.out.print(nowHour + ":" + nowMin + ":" + (double) (nowSec + nowMiliSec) + " ");
+		System.out.print(nowDay + "");
+		System.out.print(nowHour + ":" + nowMin + ":" + (double) (nowSec + nowMiliSec) + "");
 		System.out.println("KST " + nowYear);
 
 	}
@@ -503,7 +503,7 @@ public class KHWDate {
 			if (days[i] != 0) {
 				System.out.print(days[i]);
 				if (days[i] < 10) {
-					System.out.print(" ");
+					System.out.print("");
 				}
 				System.out.print("│ ");
 			} else {

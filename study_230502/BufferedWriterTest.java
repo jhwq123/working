@@ -21,7 +21,7 @@ public class BufferedWriterTest {
 				// 읽은 라인을 공백 기준으로 토큰으로 구분하는 객체를 생성한다.
 				// line : 우리는 자바 언어를 학습합니다.
 				// st : ["우리는", "자바", "언어를", "학습합니다."]
-				StringTokenizer st = new StringTokenizer(line, " ");
+				StringTokenizer st = new StringTokenizer(line, "");
 				while (st.hasMoreTokens()) {
 					// 읽을 라인 내에 '자바'라는 단어가 있으면 출력 버퍼에 기록,
 					// 버퍼의 내용을 파일에 기록한다.

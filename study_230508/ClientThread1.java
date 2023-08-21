@@ -52,7 +52,7 @@ public class ClientThread1 {
 			Thread t = new Thread(new InputThread1(in));
 
 			// 타이틀 출력
-			while (!(title = in.readLine()).equals(" ")) {
+			while (!(title = in.readLine()).equals("")) {
 				System.out.println(title);
 			}
 
